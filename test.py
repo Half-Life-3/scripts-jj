@@ -1,7 +1,8 @@
 import requests
+import userGenerator
 
 
-where = "http://localhost:8080/users/registration"
+where = "http://localhost:8070/users/registration"
 
 json ={
   "username": "member123",
