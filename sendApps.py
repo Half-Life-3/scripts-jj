@@ -14,11 +14,11 @@ def sendApp():
 
 def sendApps(num,debug=False):
 	where = "http://localhost:8071/applications"
-	name = ug.getUsers(num)
+	name = ug.genUsers(num)
 	output=[]
 	for i in range(num):
 		json=ug.genApp(name[i])
-		r.requests.post(where,json=json,headers={"Content-Type":"application/json"})
+		r=requests.post(where,json=json,headers={"Content-Type":"application/json"})
 		output.append((r.status_code,r.text))
 		if debug:
 			print(r.status_code)

@@ -17,6 +17,11 @@ class TestAppGeneration(unittest.TestCase):
 	def test_sendAnApp(self): #whether a generated app results in a sucess state
 		self.assertEqual(app.sendApp()[0],201)
 		
+	def test_sendMultipleApps(self):
+		apps = app.sendApps(5)
+		for item in apps:
+			self.assertEqual(item[0],201)
+		
 		
 		
 if __name__=="__main__":
