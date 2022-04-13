@@ -57,7 +57,7 @@ def genDOB(minAge = 18): #make a random birthday
 # mailingZipcode*	string
 # }
 
-def genCredentials(name): #take a name as [firstName,lastName] and return a dict of credentials for that name
+def genCredentials(name): #take a name as [firstName,lastName] and return a dict of credentials for that name, used for applications or user registartion
 
 	if len(name)<2:
 		name = ["FNU","LNU"]
@@ -72,9 +72,28 @@ def genCredentials(name): #take a name as [firstName,lastName] and return a dict
 	user["dateOfBirth"] = dob[0]
 	user["gender"] = choice(["MALE","FEMALE","OTHER","UNSPECIFIED"])
 	user["email"] = name[0].lower()+"."+name[1].lower()+"@email.com"
-	user["phone"] = "("+str(randint(201,99))+") "+str(randint(100,999))+"-"+str(randint(1000,9999))
+	user["phone"] = "("+str(randint(201,999))+") "+str(randint(100,999))+"-"+str(randint(1000,9999))
 	user["username"] = "ALINEBANK_TEST_"+name[0].lower()[0] +name[1].lower() + str(dob[1][0]) # "John Doe born in 2005 becomes 'ALINEBANK_TEST_Jdoe2005'
+	user["socialSecurity"] = str(randint(100,999))+"-"+str(randint(10,99))+"-"+str(randint(1000,9999))
+	user["driversLicense"] = str(randint(100000000,999999999))
+	user["income"] = str(randint(1500000,10000000))
+	user["address"] = real_random_address()["address1"]
+	user["city"] = real_random_address()["city"]
+	user["state"] = real_random_address()["state"]
+	user["zipcode"] = real_random_address()["postalCode"]
+	user["mailingAddress"] = user["address"]
+	user["mailingCity"] = user["city"]
+	user["mailingState"] = user["state"]
+	user["mailingZipcode"] = user["zipcode"]
 	
 	
+	return user
 	
 	
+def genApp(name):
+	app =dict()
+	#app["applicantIds"] =[ randint(1,9999)]
+	app["applicationType"] = choice(["CHECKING","SAVINGS","CHECKING_AND_SAVINGS","CREDIT_CARD","LOAN"])
+	app["applicants"] = [genCredentials(name)]
+	
+	return app
