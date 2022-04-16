@@ -7,7 +7,16 @@ from datetime import datetime
 
 
 def genBank():#generate testing bank
-	pass
+	bank = dict()
+	bank["id"] = randint(1,9999)
+	bank["routingNumber"] = randint(100000,999999)
+	bank["address"] = real_random_address()["address1"]
+	bank["city"] = real_random_address()["city"]
+	bank["state"]= real_random_address()["state"]
+	bank["zipcode"]=real_random_address()["postalCode"]
+	
+	return bank
+	
 	
 	
 def genBranch(): #generate a testing branch
