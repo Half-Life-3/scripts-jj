@@ -26,5 +26,5 @@ user handles user database (8070)
 underwirter handles generating applications (8071)
 account.... (8072)
 bank handles bank service (8083)
-
+transaction handles transactions (7073)
 gateway connects services? (4001)
